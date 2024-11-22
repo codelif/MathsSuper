@@ -1,0 +1,361 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{amsmath, amssymb}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{setspace}
+\graphicspath{{assets/}}
+
+\geometry{margin=1in}
+
+\begin{document}
+
+% Title Page
+\begin{titlepage}
+    \centering
+    
+    \Huge
+    \textbf{Jaypee Institute of Information Technology, Sector - 62, Noida } \\
+    \vspace{0.5cm}
+    \Large
+    \textbf{B.Tech CSE I Semester}\\
+    \vspace{1cm}
+    \vspace*{\fill}
+    
+    \includegraphics[scale=0.2]{jiit_logo}\\
+    
+    \vspace{1.5cm}
+    \Huge
+    \textbf{Mathematics PBL Report}\\
+    \Large
+    
+    \textbf{Harmonic Oscillators Using Differential Equations}\\
+    \vspace{1cm}
+
+    \Large
+    \textbf{Submitted to}\\
+    Dr. Nisha Shukla
+    \vspace{1cm}
+
+    \textbf{Submitted by}
+    \vspace{0.5cm}
+
+    \begin{tabular}{ll}
+        Harsh Sharma & 2401030232 \\
+        Karvy Singh & 2401030234 \\
+        Kunal Sharma & 2401030236 \\
+        Rudra Kumar Singh & 2401030237 \\
+        Mukul Aggarwal & 2401030239 \\
+    \end{tabular}
+
+    \vspace*{\fill}
+    \normalsize
+\end{titlepage}
+
+% Letter of Transmittal
+
+\begin{center}
+    \Large\textbf{Letter of Transmittal}
+\end{center}
+\vspace{1cm}
+
+\noindent
+\textbf{Dr. Nisha Shukla} \\
+[0.5em]
+Department of Mathematics \\
+[0.5em]
+% University/Institute Name \\
+% [Address] \\
+
+\vspace{1cm}
+
+\noindent
+\textbf{Subject:} Submission of Report on ``Harmonic Oscillators Using Differential Equations''
+
+\vspace{1cm}
+
+\noindent
+Dear Dr. Nisha Shukla,
+
+\vspace{1em}
+
+\noindent
+We are pleased to submit our report titled \textit{``Harmonic Oscillators Using Differential Equations''} as part of our coursework. This report explores the mathematical foundations of harmonic oscillators, focusing on differential equations and their applications in modeling simple harmonic motion, damped harmonic motion, and electrical analogs like RLC circuits.
+
+\vspace{1em}
+
+\noindent
+We have endeavored to cover the theoretical aspects comprehensively and hope that this report meets your expectations.
+
+\vspace{1em}
+
+\noindent
+Thank you for your guidance and the opportunity to work on this project.
+
+\vspace{2em}
+
+\noindent
+Sincerely, \\[2em]
+
+\noindent
+Harsh Sharma (2401030232)\\
+Karvy Singh (2401030234)\\
+Kunal Sharma (2401030236)\\
+Rudra Kumar Singh (2401030237)\\
+Mukul Aggarwal (2401030239)
+
+\vspace{2cm}
+
+\noindent
+Date: \today
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+\section{Introduction}
+
+Harmonic oscillators are a cornerstone in the study of differential equations and mathematical physics. They model systems where a restoring force is proportional to the displacement from equilibrium, leading to periodic motion. Understanding harmonic oscillators through differential equations allows for the analysis of a wide range of phenomena in engineering, physics, and applied mathematics. This report explores the mathematical underpinnings of harmonic oscillators, emphasizing differential equations, general solutions, and applications such as simple harmonic motion, damped harmonic motion, and RLC circuits.
+
+\section{Mathematical Foundation of Harmonic Oscillations}
+
+\subsection{The Universal Oscillator Equation}
+
+The universal form of a second-order linear homogeneous differential equation describing harmonic oscillations is:
+
+\[
+\frac{d^2 x}{dt^2} + 2\beta \frac{dx}{dt} + \omega_0^2 x = 0
+\]
+
+where:
+
+\begin{itemize}
+    \item \( x = x(t) \) is the displacement as a function of time.
+    \item \( \frac{dx}{dt} \) and \( \frac{d^2 x}{dt^2} \) denote the first and second derivatives of \( x \) with respect to time.
+    \item \( \beta \geq 0 \) is the damping coefficient.
+    \item \( \omega_0 > 0 \) is the natural angular frequency of the system.
+\end{itemize}
+
+This equation encapsulates the behavior of a wide variety of oscillatory systems, including mechanical and electrical oscillators.
+
+\subsection{General Solutions}
+
+The solution to the universal oscillator equation depends on the discriminant \( D = \beta^2 - \omega_0^2 \):
+
+\begin{itemize}
+    \item \textbf{Case 1: Underdamped (\( \beta^2 < \omega_0^2 \))}
+
+    The system exhibits oscillatory behavior with an exponentially decaying amplitude. The general solution is:
+
+    \[
+    x(t) = e^{-\beta t} \left( A \cos(\omega_d t) + B \sin(\omega_d t) \right)
+    \]
+
+    where \( \omega_d = \sqrt{\omega_0^2 - \beta^2} \) is the damped angular frequency.
+
+    \item \textbf{Case 2: Critically Damped (\( \beta^2 = \omega_0^2 \))}
+
+    The system returns to equilibrium without oscillating. The general solution is:
+
+    \[
+    x(t) = (A + B t) e^{-\beta t}
+    \]
+
+    \item \textbf{Case 3: Overdamped (\( \beta^2 > \omega_0^2 \))}
+
+    The system returns to equilibrium without oscillating, and more slowly than in the critically damped case. The general solution is:
+
+    \[
+    x(t) = e^{-\beta t} \left( C e^{\gamma t} + D e^{-\gamma t} \right)
+    \]
+
+    where \( \gamma = \sqrt{\beta^2 - \omega_0^2} \).
+\end{itemize}
+
+\subsection{Eigenvalues and Characteristic Equations}
+
+To solve the universal oscillator equation, we use the characteristic equation derived by assuming solutions of the form \( x(t) = e^{r t} \):
+
+\[
+r^2 + 2\beta r + \omega_0^2 = 0
+\]
+
+Solving this quadratic equation yields the eigenvalues \( r \), which determine the behavior of the solution:
+
+\[
+r = -\beta \pm \sqrt{\beta^2 - \omega_0^2}
+\]
+
+The nature of the roots (real and distinct, real and repeated, or complex conjugates) corresponds to the overdamped, critically damped, and underdamped cases, respectively.
+
+\section{Simple Harmonic Motion}
+
+\subsection{Formulation of SHM as a Differential Equation}
+
+Simple Harmonic Motion (SHM) is a special case of the universal oscillator equation with no damping (\( \beta = 0 \)):
+
+\[
+\frac{d^2 x}{dt^2} + \omega_0^2 x = 0
+\]
+
+This second-order linear homogeneous differential equation describes systems where the restoring force is directly proportional to the displacement and acts in the opposite direction.
+
+\subsection{Solutions to the SHM Equation}
+
+The characteristic equation is:
+
+\[
+r^2 + \omega_0^2 = 0
+\]
+
+with roots:
+
+\[
+r = \pm i\omega_0
+\]
+
+The general solution is:
+
+\[
+x(t) = A \cos(\omega_0 t) + B \sin(\omega_0 t)
+\]
+
+Alternatively, using a single trigonometric function:
+
+\[
+x(t) = X_0 \cos(\omega_0 t + \phi)
+\]
+
+where:
+
+\begin{itemize}
+    \item \( X_0 = \sqrt{A^2 + B^2} \) is the amplitude.
+    \item \( \phi = \tan^{-1}\left( \dfrac{B}{A} \right) \) is the phase angle.
+\end{itemize}
+
+\subsection{Mathematical Examples of SHM}
+
+\textbf{Example 1: Solving the SHM Equation}
+
+Consider the differential equation:
+
+\[
+\frac{d^2 x}{dt^2} + 9 x = 0
+\]
+
+\begin{itemize}
+    \item The natural frequency is \( \omega_0 = 3 \) rad/s.
+    \item The general solution is \( x(t) = A \cos(3 t) + B \sin(3 t) \).
+\end{itemize}
+
+Given initial conditions \( x(0) = 2 \) and \( \frac{dx}{dt}(0) = 0 \):
+
+\begin{align*}
+x(0) &= A = 2 \\
+\frac{dx}{dt}(0) &= -3 A \sin(0) + 3 B \cos(0) = 3 B = 0 \implies B = 0
+\end{align*}
+
+Thus, the particular solution is:
+
+\[
+x(t) = 2 \cos(3 t)
+\]
+
+\section{Damped Harmonic Motion}
+
+\subsection{Formulation of Damped Harmonic Oscillator}
+
+Including damping, the differential equation becomes:
+
+\[
+\frac{d^2 x}{dt^2} + 2\beta \frac{dx}{dt} + \omega_0^2 x = 0
+\]
+
+This equation models systems where energy is lost over time due to non-conservative forces like friction or air resistance.
+
+\subsection{Classification Based on Damping Ratio}
+
+Define the damping ratio \( \zeta = \dfrac{\beta}{\omega_0} \):
+
+\begin{itemize}
+    \item \textbf{Underdamped (\( \zeta < 1 \))}: Oscillatory motion with exponential decay.
+    \item \textbf{Critically Damped (\( \zeta = 1 \))}: Non-oscillatory motion returning to equilibrium as quickly as possible.
+    \item \textbf{Overdamped (\( \zeta > 1 \))}: Non-oscillatory motion returning to equilibrium slower than the critically damped case.
+\end{itemize}
+
+\subsection{Analytical Solutions}
+
+Refer to Section 2.2 for the general solutions in each damping case. Solving specific problems involves applying initial conditions to determine the constants.
+
+\textbf{Example: Underdamped Oscillator}
+
+Given \( \frac{d^2 x}{dt^2} + 4 \frac{dx}{dt} + 5 x = 0 \):
+
+\begin{itemize}
+    \item \( \beta = 2 \), \( \omega_0 = \sqrt{5} \).
+    \item Damping ratio \( \zeta = \dfrac{2}{\sqrt{5}} < 1 \) (underdamped).
+    \item Damped frequency \( \omega_d = \sqrt{\omega_0^2 - \beta^2} = 1 \).
+    \item General solution: \( x(t) = e^{-2 t} (A \cos t + B \sin t) \).
+\end{itemize}
+
+\section{Electrical Analog: RLC Circuit}
+
+\subsection{Mathematical Modeling of RLC Circuits}
+
+An RLC series circuit consisting of a resistor (\( R \)), inductor (\( L \)), and capacitor (\( C \)) can be modeled by a second-order linear differential equation. Applying Kirchhoff's voltage law:
+
+\[
+L \frac{d^2 q}{dt^2} + R \frac{dq}{dt} + \dfrac{1}{C} q = 0
+\]
+
+where \( q(t) \) is the charge on the capacitor at time \( t \).
+
+\subsection{Differential Equation for RLC Circuits}
+
+Rewriting the equation:
+
+\[
+\frac{d^2 q}{dt^2} + 2 \alpha \frac{dq}{dt} + \omega_0^2 q = 0
+\]
+
+with:
+
+\begin{itemize}
+    \item \( \alpha = \dfrac{R}{2L} \) (damping coefficient).
+    \item \( \omega_0 = \dfrac{1}{\sqrt{LC}} \) (natural angular frequency).
+\end{itemize}
+
+This equation is analogous to the universal oscillator equation.
+
+\subsection{Solution Techniques and Examples}
+
+\textbf{Example: Solving an RLC Circuit Differential Equation}
+
+Given \( L = 1 \, \text{H} \), \( R = 2 \, \Omega \), \( C = 0.25 \, \text{F} \):
+
+\begin{itemize}
+    \item \( \alpha = \dfrac{2}{2 \times 1} = 1 \, \text{s}^{-1} \).
+    \item \( \omega_0 = \dfrac{1}{\sqrt{1 \times 0.25}} = 2 \, \text{s}^{-1} \).
+    \item Damping ratio \( \zeta = \dfrac{1}{2} < 1 \) (underdamped).
+    \item Damped frequency \( \omega_d = \sqrt{4 - 1} = \sqrt{3} \, \text{s}^{-1} \).
+    \item General solution: \( q(t) = e^{-t} \left( A \cos\left( \sqrt{3} \, t \right) + B \sin\left( \sqrt{3} \, t \right) \right) \).
+\end{itemize}
+
+Applying initial conditions allows for solving for constants \( A \) and \( B \).
+
+\section{Conclusion}
+
+The study of harmonic oscillators through differential equations provides profound insights into the behavior of dynamic systems. By focusing on the mathematical formulations, solutions, and classifications of these differential equations, we gain a deeper understanding applicable across various fields such as mechanics, electronics, and beyond. The universal oscillator equation serves as a foundational tool in analyzing and predicting system responses under different damping conditions.
+
+\section{References}
+
+\begin{itemize}
+    \item Boyce, W. E., \& DiPrima, R. C. (2017). \textit{Elementary Differential Equations and Boundary Value Problems}. Wiley.
+    \item Simmons, G. F. (2016). \textit{Differential Equations with Applications and Historical Notes}. CRC Press.
+    \item Braun, M. (1993). \textit{Differential Equations and Their Applications}. Springer.
+\end{itemize}
+
+\end{document}
